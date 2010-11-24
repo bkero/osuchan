@@ -1,0 +1,13 @@
+====    OSUCHAN     ====
+
+This is a copy of the OSUChan message board.
+
+Requirements:
+    Bottle(the version included in OSUChan here is probably already outdated)
+    PsycoPG2
+    PostgreSQL server somewhere
+
+Installation instructions
+    Create an OSUChan PostgreSQL database
+    $ psql osuchan < sql/chantables.sql to initialize the database   
+    Modify osuchan.py, change DSN on line 9, alter your database name if you need to.

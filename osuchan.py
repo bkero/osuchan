@@ -7,6 +7,8 @@ import psycopg2
 import hashlib
 
 DSN="dbname=cs440"
+header="OSUChan"
+
 conn = psycopg2.connect(DSN)
 curs = conn.cursor()
 
@@ -15,7 +17,7 @@ curs = conn.cursor()
 def index():
     curs.execute("SELECT name, abbreviation from board")
     boards = curs.fetchall()
-    return {"title": "OSUChan", "boards": boards}
+    return {"title": header, "boards": boards}
 
 @route('/static/:name')
 def style(name):
@@ -100,4 +102,4 @@ def showthread(board, thread):
     posts = curs.fetchall()
     return dict(title = subject, board=board, posts=posts, thread=thread)
 
-run(host='ponderosa.osuosl.org', port=1337)
+run(host='0.0.0.0', port=1337)
